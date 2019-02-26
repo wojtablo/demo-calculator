@@ -1,0 +1,6 @@
+# IDE
+.idea
+
+# Other directories
+assets/node_modules
+public/s/
