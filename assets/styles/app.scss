@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+@import
+  'reset', // Reset some default settings, this one probably would grow with the site, but enough for now
+  'general', // Little bit of this and little bit of that
+  'utils/extras', // Just some fun
+  'components/calculator'; // The subject of the task

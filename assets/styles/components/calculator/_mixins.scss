@@ -1,0 +1,21 @@
+@mixin setButton($bg-color) {
+  background-color: $bg-color;
+
+  // Hover (web browser only)
+  &:hover {
+    background-color: darken($bg-color, 5%);
+  }
+
+  // Maybe not good for usability, but not the case in this task
+  &:focus {
+    @if($HIDE_OUTLINE){
+      outline: none;
+    }
+  }
+
+  // Active state when user presses a button
+  &:active {
+    background-color: darken($bg-color, 15%);
+  }
+}
+

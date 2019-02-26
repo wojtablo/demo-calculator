@@ -1,0 +1,83 @@
+// Calculator's frame (i.e. mobile device)
+.c_calc_frame {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  &:hover {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+
+// Calculator's layout
+.c_calc {
+  border-top:5px solid #fff;
+  background-color: $calculator-frame-color;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin:0 auto;
+  width: $calculator-width;
+
+  // Display
+  &__display {
+    background-color: $display-bg;
+    padding: 40px 30px 45px 30px;
+    text-align: right;
+
+    &__input {
+      color: $display-input-font-color;
+      font-size: $display-input-font-size;
+    }
+    &__output {
+      color :$display-output-font-color;
+      font-size: $display-output-font-size;
+    }
+  }
+
+  // Panel {
+  &__panel {
+    &__row {
+      display: flex;
+      &:not(:last-child) {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
+}
+
+// Calculator's Buttons
+.c_calc__btn {
+  border: none;
+  color: $btn-font-color;
+  height: $btn-height;
+  font-family: inherit;
+  font-size: $btn-font-size;
+  font-weight: 300; // If using "Lato" font. Doesn't bother if not.
+  position:relative;
+  width: $btn-width;
+
+  // Shared behaviour
+  &:hover {
+    cursor: pointer;
+    transition: background-color 100ms linear;
+  }
+
+  // Force outline to wrap the whole button. Without this setting an outline is visible partially as it is partially overlayed by the nearby button. Thus, we need to "lift" it on focus
+  &:focus {
+    z-index:1;
+    outline: none;
+  }
+
+  &:active {}
+
+  // Theming buttons using SASS mixins
+  &__primary {
+    @include setButton($btn-primary-bg);
+  }
+  &__secondary {
+    @include setButton($btn-secondary-bg);
+  }
+  &__tertiary {
+    @include setButton($btn-tertiary-bg);
+  }
+  &--large {
+    width: 2 * $btn-width;
+  }
+}

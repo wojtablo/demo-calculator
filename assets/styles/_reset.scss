@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+}
+
+// Change defaults for box-sizing
+// The box-sizing CSS property defines how the user agent should calculate the total width and height of an element.
+// Popular frameworks (such as Zurb Foundaiton 6+) does it oo.
+// More: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}

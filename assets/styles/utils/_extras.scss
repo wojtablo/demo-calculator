@@ -1,0 +1,38 @@
+// Animates top bar
+@keyframes sayHi {
+  from {
+    top: -25px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+// This is SASS extender
+%sayHiInitialPosition {
+  animation: sayHi 1s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+  left:0;
+  top:-25px;
+}
+
+// Add text "Calculator"
+body {
+  &::before {
+    color: lighten($global-bg,1%);
+    text-shadow: 10px 10px 10px darken($global-bg,1%);
+    text-effect: outline;
+    content: "CALCULATOR";
+    position:absolute;
+    top:0;
+    left:0;
+    font-size:15vh;
+    letter-spacing: -25px;
+    font-weight: bold;
+  }
+  .wrapper {
+    position:relative;
+    z-index:1;
+  }
+}
