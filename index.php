@@ -7,23 +7,23 @@ include_once './views/HEAD.inc.php';
 <div class="wrapper">
 
     <!--  Here starts The Calculator -->
-    <div class="c_calc c_calc_frame">
+    <div id="js-calc" class="c_calc c_calc_frame w_calculator">
 
         <!-- Output display -->
         <section class="c_calc__display">
 
+            <!-- Output message -->
+            <div id="js-userInputNotification" class="c_calc__display__notification"></div>
+
             <!-- User input -->
-            <div class="c_calc__display__input" data-result="0" data-operation="+" data-second="">
-                <span>365</span>
-                <span>x</span>
-                <span>4</span>
-                <span>=</span>
+            <div id="js-userInput" class="c_calc__display__input js-userInput">
+                <span id="js-number1"></span>
+                <span id="js-operator"></span>
+                <span id="js-number2"></span>
             </div>
 
             <!-- Output of an artithmetic operation -->
-            <div class="c_calc__display__output">
-                <span>1,460</span>
-            </div>
+            <div id="js-result" class="c_calc__display__output">0</div>
 
         </section>
 
@@ -33,77 +33,77 @@ include_once './views/HEAD.inc.php';
             <!-- Row 1 -->
             <div class="c_calc__panel__row">
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__tertiary">AC</button>
+                    <button class="c_calc__btn c_calc__btn__tertiary" data-action="reset">AC</button>
                 </div>
                 <div class="c_calc__panel__btn">
                     <button class="c_calc__btn c_calc__btn__tertiary c_calc__btn--large">SAVE</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__secondary">yy</button>
+                    <button class="c_calc__btn c_calc__btn__secondary"data-operator="/">÷</button>
                 </div>
             </div>
 
             <!-- Row 2 -->
             <div class="c_calc__panel__row">
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">.</button>
+                    <button class="c_calc__btn c_calc__btn__primary" calc-value=".">.</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">0</button>
+                    <button class="c_calc__btn c_calc__btn__primary" data-number="0">0</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">&nbsp;</button>
+                    <button class="c_calc__btn c_calc__btn__primary" calc-value="null">&nbsp;</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__secondary">x</button>
+                    <button class="c_calc__btn c_calc__btn__secondary" data-operator="*">x</button>
                 </div>
             </div>
 
             <!-- Row 3 -->
             <div class="c_calc__panel__row">
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">1</button>
+                    <button class="c_calc__btn c_calc__btn__primary" data-number="1">1</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary c_calc__btn--selected">2</button>
+                    <button class="c_calc__btn c_calc__btn__primary c_calc__btn--selected" data-number="2">2</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">3</button>
+                    <button class="c_calc__btn c_calc__btn__primary"data-number="3">3</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__secondary">-</button>
+                    <button class="c_calc__btn c_calc__btn__secondary" data-operator="-">-</button>
                 </div>
             </div>
 
             <!-- Row 4 -->
             <div class="c_calc__panel__row">
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">4</button>
+                    <button class="c_calc__btn c_calc__btn__primary" data-number="4">4</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">5</button>
+                    <button class="c_calc__btn c_calc__btn__primary" data-number="5">5</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">6</button>
+                    <button class="c_calc__btn c_calc__btn__primary" data-number="6">6</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__secondary">+</button>
+                    <button class="c_calc__btn c_calc__btn__secondary" data-operator="+">+</button>
                 </div>
             </div>
 
             <!-- Row 5 -->
             <div class="c_calc__panel__row">
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">7</button>
+                    <button class="c_calc__btn c_calc__btn__primary" data-number="7">7</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">8</button>
+                    <button class="c_calc__btn c_calc__btn__primary" data-number="8">8</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">9</button>
+                    <button class="c_calc__btn c_calc__btn__primary" data-number="9">9</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__secondary">=</button>
+                    <button class="c_calc__btn c_calc__btn__secondary" data-resolve>=</button>
                 </div>
             </div>
 
