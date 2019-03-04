@@ -7,9 +7,9 @@ include_once './views/HEAD.inc.php';
 <div class="wrapper">
 
     <!--  Here starts The Calculator -->
-    <div id="js-calc" class="c_calc c_calc_frame w_calculator">
+    <div id="js-calc" class="c_calc c_calc_frame">
 
-        <!-- Output display -->
+        <!-- UI: Output display -->
         <section class="c_calc__display">
 
             <!-- Output message -->
@@ -27,16 +27,16 @@ include_once './views/HEAD.inc.php';
 
         </section>
 
-        <!-- Buttons -->
+        <!-- UI: Control panel -->
         <section class="c_calc__panel">
 
             <!-- Row 1 -->
             <div class="c_calc__panel__row">
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__tertiary" data-action="reset">AC</button>
+                    <button class="c_calc__btn c_calc__btn__tertiary" data-clear>AC</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__tertiary c_calc__btn--large">SAVE</button>
+                    <button class="c_calc__btn c_calc__btn__tertiary c_calc__btn--large" data-save>SAVE</button>
                 </div>
                 <div class="c_calc__panel__btn">
                     <button class="c_calc__btn c_calc__btn__secondary"data-operator="/">÷</button>
@@ -46,13 +46,13 @@ include_once './views/HEAD.inc.php';
             <!-- Row 2 -->
             <div class="c_calc__panel__row">
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary" calc-value=".">.</button>
+                    <button class="c_calc__btn c_calc__btn__primary">.</button>
                 </div>
                 <div class="c_calc__panel__btn">
                     <button class="c_calc__btn c_calc__btn__primary" data-number="0">0</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary" calc-value="null">&nbsp;</button>
+                    <button class="c_calc__btn c_calc__btn__primary">&nbsp;</button>
                 </div>
                 <div class="c_calc__panel__btn">
                     <button class="c_calc__btn c_calc__btn__secondary" data-operator="*">x</button>
@@ -65,7 +65,7 @@ include_once './views/HEAD.inc.php';
                     <button class="c_calc__btn c_calc__btn__primary" data-number="1">1</button>
                 </div>
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary c_calc__btn--selected" data-number="2">2</button>
+                    <button class="c_calc__btn c_calc__btn__primary" data-number="2">2</button>
                 </div>
                 <div class="c_calc__panel__btn">
                     <button class="c_calc__btn c_calc__btn__primary"data-number="3">3</button>
