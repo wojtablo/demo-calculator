@@ -1,26 +1,24 @@
-'use strict';
+const browserify = require('browserify');
+const babelify = require('babelify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
+const print = require('gulp-print').default;
 
-const streamqueue = require('streamqueue');
+module.exports = function(gulp, CONFIG) {
 
-module.exports = function(gulp, plugin, config) {
-	// -------------------------------------------
-	// Package:  Custom core files
-	// Description: custom scripts from us
-	// -------------------------------------------
-	gulp.task('scripts', () => {
-		return streamqueue(
-			{objectMode: true},
-			gulp.src(config.SCRIPTS)
-				.pipe(plugin.babel({
-					presets: ['es2015']
-				}))
-				.pipe(plugin.if(!config.development, plugin.concat('bundle.min.js')))
-				.pipe(plugin.if(!config.development, plugin.uglify()))
-				.pipe(plugin.size({showFiles: true}))
-		)
-			.pipe(config.development
-				? gulp.dest(config.publicDevelopment + 'js/')
-				: gulp.dest(config.publicProduction + 'js/'));
+	gulp.task('scripts', function () {
+		// app.js is your main JS file with all your module inclusions
+		return browserify({entries: ['./scripts/app.js'], debug: true})
+			.transform('babelify', { presets: ['@babel/preset-env'] })
+			.bundle()
+			.pipe(source('bundle.min.js'))
+			.pipe(buffer())
+			.pipe(sourcemaps.init())
+			.pipe(uglify())
+			.pipe(print())
+			.pipe(sourcemaps.write('./maps'))
+			.pipe(gulp.dest(CONFIG.public.scripts));
 	});
-
 };

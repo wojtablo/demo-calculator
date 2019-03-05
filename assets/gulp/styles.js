@@ -1,45 +1,42 @@
-'use strict';
+const plumber = require('gulp-plumber');
+const rename = require('gulp-rename');
+const cssmin = require('gulp-cssnano')
+const sass = require('gulp-sass');
+const sassLint = require('gulp-sass-lint');
+const prefix = require('gulp-autoprefixer');
+const sourcemaps  = require('gulp-sourcemaps');
+const print = require('gulp-print').default;
 
-const sassdoc = require('sassdoc');
+module.exports = function (gulp, CONFIG) {
 
-module.exports = function (gulp, plugin, config) {
-
-	let sassOptions = {
-		outputStyle: config.development ? 'expanded' : 'compressed',
-		precision: 10
+	let _sassOptions = {
+		outputStyle: 'expanded'
 	};
 
-	let sassdocOptions = {
-		dest: './sassdoc',
-		verbose: true,
-		display: {
-			access: ['public', 'private'],
-			alias: true,
-			watermark: true,
-		},
-		groups: {
-			'undefined': 'Ungrouped',
-			foo: 'Foo group',
-			bar: 'Bar group',
-		},
-		basePath: 'https://github.com/SassDoc/sassdoc',
+	let _prefixerOptions = {
+		browsers: ['last 2 versions']
 	};
 
-	gulp.task('styles', () => {
 
-		return gulp.src([config.STYLES])
-			.pipe(plugin.plumber())
-			.pipe(plugin.sass.sync(sassOptions).on('error', plugin.sass.logError))
-			.pipe(plugin.autoprefixer({
-				browsers: ['last 2 version', '> 5%', 'safari 5', 'ios 6', 'android 4'],
-				cascade: false
-			}))
-			.pipe(plugin.if(config.development, plugin.sourcemaps.init()))
-			.pipe(plugin.if(config.development, plugin.sourcemaps.write('./')))
-			.pipe(plugin.if(config.development, gulp.dest(config.publicDevelopment + 'css/'), gulp.dest(config.publicProduction + 'css/')))
-			.pipe(plugin.if(config.deploy, gulp.dest(config.publicDevelopment + 'css/')))
-			.pipe(plugin.if(config.development, sassdoc(sassdocOptions)))
-			.pipe(plugin.size({showFiles: true}));
+	gulp.task('styles', function() {
+		return gulp.src([CONFIG.assets.styles])
+			.pipe(plumber())
+			.pipe(print())
+			.pipe(sourcemaps.init())
+			.pipe(sass(_sassOptions))
+			.pipe(prefix(_prefixerOptions))
+			.pipe(rename('main.css'))
+			.pipe(gulp.dest(CONFIG.public.styles))
+			.pipe(cssmin())
+			.pipe(rename({ suffix: '.min' }))
+			.pipe(gulp.dest(CONFIG.public.styles));
+	});
+
+	gulp.task('sass-lint', function() {
+		gulp.src([CONFIG.assets.styles])
+			.pipe(sassLint())
+			.pipe(sassLint.format())
+			.pipe(sassLint.failOnError());
 	});
 
 };
