@@ -12,7 +12,7 @@ const CONFIG = {
 	assets: {
 		images: './gfx/',
 		styles: './styles/**/*.scss',
-		scripts: './scripts/*.js',
+		scripts: './scripts/**/*.js',
 		pages: '../*.php'
 	},
 	public: {
