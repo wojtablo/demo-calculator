@@ -17,7 +17,7 @@ export let CalculatorResultLogger = (function (CalculatorWidget) {
 		// AJAX request
 		$.ajax({
 			type: 'POST',
-			url: '/calculations.php',
+			url: '/app/lib/ResultsLogger.php', 
 			data:{
 				calcData: _calcDataObject
 			},

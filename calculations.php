@@ -1,4 +1,12 @@
 <?php
+
+// Auto load dependencies from Composer
+require_once __DIR__.'/app/vendor/autoload.php';
+
+// Initialize Twig templates
+$templates = new Twig_Loader_Filesystem(__DIR__ . '/app/templates');
+$twig = new Twig_Environment($templates);
+
     $calcData = $_POST['calcData'];
     if($calcData){
         generateCsvFile($calcData);
@@ -36,6 +44,31 @@
             echo $table;
         }
     }
+
+    // Create a product list
+    $products = [
+        [
+            'name'          => 'Notebook',
+            'description'   => 'Core i7',
+            'value'         =>  800.00,
+            'date_register' => '2017-06-22',
+        ],
+        [
+            'name'          => 'Mouse',
+            'description'   => 'Razer',
+            'value'         =>  125.00,
+            'date_register' => '2017-10-25',
+        ],
+        [
+            'name'          => 'Keyboard',
+            'description'   => 'Mechanical Keyboard',
+            'value'         =>  250.00,
+            'date_register' => '2017-06-23',
+        ],
+    ];
+
+    // Render our view
+    echo $twig->render('partials/calculations.html', ['products' => $products] );
 ?>
 
 

@@ -1,0 +1,15 @@
+{
+    "name": "wojtablo/calculator",
+    "description": "Some description may be here",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wojtek",
+            "email": "w.mikolajewski@protonmail.ch"
+        }
+    ],
+    "minimum-stability": "alpha"
+}
