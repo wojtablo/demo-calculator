@@ -2,6 +2,9 @@
 .idea
 .vscode
 
-# Other directories
+# Package managers
 assets/node_modules
+vendor
+
+# Distribution
 public/s/
