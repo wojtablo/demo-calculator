@@ -2,29 +2,33 @@
 
 const browser = require('browser-sync');
 
-module.exports = function (gulp, plugin, config) {
-	// Start a server with LiveReload to preview the site in
-	gulp.task('server', ['compile'], function () {
+module.exports = function (gulp, CONFIG) {
+
+	gulp.task('server', function () {
 		browser.init({
 			//server: 'dist',
-			port: config.port.website,
+			port: CONFIG.server.port.website,
 			ui: {
-				port: config.port.panel
+				port: CONFIG.server.port.panel
 			},
 			proxy: {
-				target: config.domain,
+				target: CONFIG.server.domain,
 				middleware: function (req, res, next) {
-					console.log(req.url);
+					//console.log(req.url);
 					next();
 				}
 			}
 		});
 	});
 
-	// Build the site, run the server, and watch for file changes
-	gulp.task('default', ['server'], function () {
-		gulp.watch(['styles/**/*.scss'], ['styles', browser.reload]);
-		gulp.watch(['scripts/**/*.js'], ['scripts', browser.reload]);
-		gulp.watch(['../*.php'], browser.reload);
+	gulp.task('reload', function () {
+		browser.reload();
 	});
+
+	gulp.task('watch', ['scripts', 'server'], function () {
+		gulp.watch([CONFIG.assets.scripts], ['scripts', 'reload']);
+		gulp.watch([CONFIG.assets.styles], ['styles', 'reload']);
+		gulp.watch([CONFIG.assets.pages], ['reload']);
+	});
+
 };
