@@ -1,11 +1,5 @@
 /**
- * I declare this object as a namespace in which I create my widget
- * @type {{}}
- */
-let Widget = {};
-
-/**
- * ___ The Widget Calculator ___
+ * ___ The Calculator ___
  *
  * I use Revealing Module Pattern, meaning I operate within function scope with public and private methods. The widget
  * is wrapped in an IFFE (Immediately-Invoked Function Expression), so it runs immediately when the file is run.
@@ -15,7 +9,9 @@ let Widget = {};
  * @type {{onPressDigitButton, onPressResultButton, Button, onPressAcButton, onPressSaveButton, onPressOperationButton}}
  */
 
-Widget.Calculator = (function () {
+export let CalculatorWidget = (function () {
+
+	console.log('Widget loaded: Calculator');
 
 	// Button identifiers
 	const Button = {
@@ -78,13 +74,6 @@ Widget.Calculator = (function () {
 		_resetResults();
 	};
 
-	/**
-	 * Handle selection of save button
-	 */
-	let onPressSaveButton = function(){
-		_calculations();
-	};
-
 	// Private function
 	let _resetResults = function(){
 		number1 = '';
@@ -98,65 +87,39 @@ Widget.Calculator = (function () {
 		$('#js-result').html('0');
 	};
 
-	let _calculations = function(){
-
-		let currentDate = new Date();
-
-		let _calcDataObject = {
-			result: 666,
-			ip: '123.123.123.123',
-			date: currentDate.getTime(),
-			browser: 'Firefox'
-		};
-
-		// AJAX request
-		$.ajax({
-			type: 'POST',
-			url: './calculations.php',
-			data:{
-				calcData: _calcDataObject
-			},
-			success:function(html) {
-				alert(html);
-			}
-		});
-	};
-
 	// Return public API
 	return {
 		onPressDigitButton: onPressDigitButton,
 		onPressOperationButton: onPressOperationButton,
 		onPressResultButton: onPressResultButton,
 		onPressAcButton: onPressAcButton,
-		onPressSaveButton: onPressSaveButton,
 		Button: Button,
 	};
 
 })();
 
+
+
 // Handle click on button with digit
-$(Widget.Calculator.Button.number).click(function() {
+$(CalculatorWidget.Button.number).click(function() {
 	let _input = $(this).data('number');
-	Widget.Calculator.onPressDigitButton(_input);
+	CalculatorWidget.onPressDigitButton(_input);
 });
 
 // Handle click on button with action
-$(Widget.Calculator.Button.operator).click(function() {
+$(CalculatorWidget.Button.operator).click(function() {
 	let _input = $(this).data('operator');
-	Widget.Calculator.onPressOperationButton(_input);
+	CalculatorWidget.onPressOperationButton(_input);
 });
 
 // Handle click on button with result
-$(Widget.Calculator.Button.result).click(function() {
-	Widget.Calculator.onPressResultButton();
+$(CalculatorWidget.Button.result).click(function() {
+	CalculatorWidget.onPressResultButton();
 });
 
 // Handle click on button with result
-$(Widget.Calculator.Button.clear).click(function() {
-	Widget.Calculator.onPressAcButton();
+$(CalculatorWidget.Button.clear).click(function() {
+	CalculatorWidget.onPressAcButton();
 });
 
-// Handle click on button with result
-$(Widget.Calculator.Button.save).click(function() {
-	Widget.Calculator.onPressSaveButton();
-});
+
