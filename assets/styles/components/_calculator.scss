@@ -1,9 +1,11 @@
 // Bootstrap "Calculator component
-@import 'calculator/variables';
-@import 'calculator/mixins';
-@import 'calculator/calculator';
+@import
+  'calculator/variables',
+  'calculator/mixins',
+  'calculator/core',
+  'calculator/buttons';
 
-// Well, that's just a decorator to position Calculator in the browser's tab
+// Decorator to position Calculator in the browser's tab
 .⛱ {
   height: 100vh;
   .wrapper {
