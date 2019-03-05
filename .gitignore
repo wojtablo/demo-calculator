@@ -1,5 +1,6 @@
-# IDE
+# Exclude stuff from IntelliJ IDEA & Visual Studio Code
 .idea
+.vscode
 
 # Other directories
 assets/node_modules
