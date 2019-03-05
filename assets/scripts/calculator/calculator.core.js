@@ -1,12 +1,11 @@
 /**
  * ___ The Calculator ___
  *
- * I use Revealing Module Pattern, meaning I operate within function scope with public and private methods. The widget
+ * I use Revealing Module Pattern, therefore code stays in a function scope with public and private methods. The widget
  * is wrapped in an IFFE (Immediately-Invoked Function Expression), so it runs immediately when the file is run.
  * Methods starting with underscore are considered as private, i.e. _resetResults()
  *
  * @author Wojciech Mikołajewski <w.mikolajewski@protonmail.ch>
- * @type {{onPressDigitButton, onPressResultButton, Button, onPressAcButton, onPressSaveButton, onPressOperationButton}}
  */
 
 export let CalculatorWidget = (function () {
@@ -51,7 +50,7 @@ export let CalculatorWidget = (function () {
 	 * @param type
 	 */
 	let onPressOperationButton = function (type) {
-		if(!result){
+		if(!result && number1){
 			operator = type;
 			$('#js-operator').html(operator);
 		}
