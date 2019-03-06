@@ -3,7 +3,7 @@ const gulp = require('gulp');
 
 const CONFIG = {
 	server: {
-		domain: 'calculator.localhost',
+		domain: 'calculator.localhost', // <----- Change to your localhost vhost if you want to use Browser-Sync
 		port: {
 			website: 3000,
 			panel: 3001

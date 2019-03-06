@@ -8,3 +8,8 @@ vendor
 
 # Distribution
 public/s/
+public/s/.gitkeep
+
+# Logs
+logs
+!logs/.gitkeep

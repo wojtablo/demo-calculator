@@ -1,7 +1,7 @@
 {
-  "name": "muller-carrers-templates",
-  "version": "2.2.0",
-  "description": "Template",
+  "name": "calculator-wmikolajewski",
+  "version": "1.0.0",
+  "description": "Calculator's functionality executed on the web-app",
   "author": "Wojciech Mikolajewski <w.mikolajewski@protonmail.ch>",
   "private": true,
   "main": "gulpfile.babel.js",
