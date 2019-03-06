@@ -1,15 +1,20 @@
 {
-    "name": "wojtablo/calculator",
-    "description": "Some description may be here",
+    "name": "wmikolajewski/calculator",
+    "description": "Calculator's functionality executed on the server-side",
     "require": {
         "twig/twig": "^2.6"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": "Wojtek",
+            "name": "Wojciech Mikołajewski",
             "email": "w.mikolajewski@protonmail.ch"
         }
     ],
-    "minimum-stability": "alpha"
+    "minimum-stability": "stable",
+    "autoload": {
+      "psr-4": {
+        "Izing\\": "Classes"
+      }
+    }
 }

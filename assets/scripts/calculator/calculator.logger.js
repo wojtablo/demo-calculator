@@ -17,12 +17,13 @@ export let CalculatorResultLogger = (function (CalculatorWidget) {
 		// AJAX request
 		$.ajax({
 			type: 'POST',
-			url: '/app/lib/ResultsLogger.php', 
+			url: '/index.php',
 			data:{
-				calcData: _calcDataObject
+				userDataObject: _calcDataObject
 			},
 			success:function(html) {
 				alert(html);
+				// console.log(html);
 			}
 		});
 	};
