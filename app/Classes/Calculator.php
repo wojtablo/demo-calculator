@@ -51,7 +51,7 @@ class Calculator
 
     /**
      * Open log file for reading and writing; place the file pointer at the end of the file.
-     * If the file does not exist, attempt to create it.
+     * By that time log file must exists, as it is checked in the constructor.
      *
      * @param $data array
      */
