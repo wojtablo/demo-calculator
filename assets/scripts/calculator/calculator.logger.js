@@ -1,3 +1,14 @@
+/**
+ * ___ The Calculator ___
+ *
+ * I use Revealing Module Pattern, therefore code stays in a function scope with public and private methods. The widget
+ * is wrapped in an IFFE (Immediately-Invoked Function Expression), so it runs immediately when the file is run.
+ * Methods starting with underscore are considered as private, i.e. _resetResults()
+ *
+ * @author Wojciech Mikołajewski <w.mikolajewski@protonmail.ch>
+ */
+
+
 import {CalculatorWidget} from './calculator.core';
 
 export let CalculatorResultLogger = (function (CalculatorWidget) {
