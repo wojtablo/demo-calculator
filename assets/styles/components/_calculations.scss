@@ -1,0 +1,50 @@
+$bg-color: #fff;
+
+// Table container
+.c_logs {
+  padding: 20px;
+  width: 70%;
+  max-width:600px;
+  margin:0 auto;
+
+  // Table log
+  table {
+    @extend %shadowEffect;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    background-color: $bg-color;
+    margin-bottom:70px;
+
+    // Table header
+    thead {
+      th {
+        background: darken($bg-color, 10%);
+        border-top: 1px solid darken($bg-color, 30%);
+        text-align: left;
+      }
+    }
+
+    // Catchy effect
+    tr:hover td {
+      background: darken($bg-color, 5%);
+    }
+
+    // Some common styles
+    th, td {
+      border-right: 1px solid darken($bg-color, 30%);
+      border-bottom: 1px solid darken($bg-color, 30%);
+      padding: 5px 50px 5px 20px;
+      min-width: 100px;
+      &:first-child {
+        border-left: 1px solid darken($bg-color, 30%);
+      }
+    }
+
+    // Shame
+    ._date {
+      width: 250px;
+    }
+  }
+}
+

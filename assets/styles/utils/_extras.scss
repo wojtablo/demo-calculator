@@ -17,22 +17,30 @@
   top:-25px;
 }
 
+%shadowEffect {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  &:hover {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+
 // Add text "Calculator"
 body {
-  &::before {
-    color: lighten($global-bg,1%);
-    text-shadow: 10px 10px 10px darken($global-bg,1%);
-    text-effect: outline;
-    content: "CALCULATOR";
-    position:absolute;
-    top:0;
-    left:0;
-    font-size:15vh;
-    letter-spacing: -25px;
-    font-weight: bold;
-  }
   .wrapper {
     position:relative;
     z-index:1;
+    &::before {
+      color: lighten($global-bg,1%);
+      text-shadow: 10px 10px 10px darken($global-bg,1%);
+      text-effect: outline;
+      content: "CALCULATOR";
+      position:absolute;
+      top:0;
+      left:0;
+      font-size:15vh;
+      letter-spacing: -25px;
+      font-weight: bold;
+    }
   }
 }

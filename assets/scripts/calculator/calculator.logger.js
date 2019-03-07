@@ -1,3 +1,7 @@
+import {CalculatorWidget} from './calculator.core';
+import AWN from 'awesome-notifications';
+let NotifierModule = new AWN();
+
 /**
  * ___ The Calculator ___
  *
@@ -9,42 +13,27 @@
  */
 
 
-import {CalculatorWidget} from './calculator.core';
-
 export let CalculatorResultLogger = (function (CalculatorWidget) {
-	console.log('Widget module loaded: Calculator Result Loger');
-
-	let _calculations = function(){
-
-		let currentDate = new Date();
-
-		let _calcDataObject = {
-			result: 666,
-			ip: '123.123.123.123',
-			date: currentDate.getTime(),
-			browser: 'Firefox'
-		};
-
-		// AJAX request
-		$.ajax({
-			type: 'POST',
-			url: '/index.php',
-			data:{
-				userDataObject: _calcDataObject
-			},
-			success:function(html) {
-				alert(html);
-				// console.log(html);
-			}
-		});
-	};
+	// console.log('Widget loaded: Calculator Result Loger');
 
 	/**
 	 * Handle on press save action
 	 */
-	CalculatorWidget.onPressSaveButton = function(){
-		console.log('calculation');
-		_calculations();
+	CalculatorWidget.onPressSaveButton = function(userData){
+
+		$.ajax({
+			type: 'POST',
+			url: '/index.php',
+			data:{
+				userDataObject: userData
+			},
+			success:function() {
+				// console.log('Log saved to file');
+				// alert(html);
+				// console.log(html);
+			}
+		});
+
 	};
 
 	return CalculatorWidget;
@@ -53,6 +42,12 @@ export let CalculatorResultLogger = (function (CalculatorWidget) {
 
 // Handle click on button with result
 $(CalculatorWidget.Button.save).click(function() {
-	CalculatorWidget.onPressSaveButton();
+	let dataObject = CalculatorWidget.userDataObject;
+	if(dataObject.result){
+		NotifierModule.success('Your result has been saved to file');
+		CalculatorWidget.onPressSaveButton(CalculatorWidget.userDataObject);
+	} else {
+		NotifierModule.warning('Empty result. Nothing save');
+	}
 });
 

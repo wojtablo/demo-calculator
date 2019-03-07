@@ -9,8 +9,7 @@
  */
 
 export let CalculatorWidget = (function () {
-
-	console.log('Widget loaded: Calculator');
+	// console.log('Widget: Calculator');
 
 	// Button identifiers
 	const Button = {
@@ -22,11 +21,27 @@ export let CalculatorWidget = (function () {
 		save: '[data-save]'
 	};
 
+	// Hooks to display
+	const Display = {
+		number1: '[data-calc-number1]',
+		number2: '[data-calc-number2]',
+		operator: '[data-calc-operator]',
+		result: '[data-calc-result]'
+	};
+
 	// Variables to be used
 	let number1 = '';
 	let number2 = '';
 	let operator = '';
 	let result = '';
+
+	let userDataObject = {
+		result: result,
+		// -- Data below we can take easier via PHP
+		// date: currentDateTime.getTime()
+		// ip: '123.123.123.123',
+		// browser: 'Firefox'
+	};
 
 	/**
 	 * Handle select of a digit
@@ -36,11 +51,11 @@ export let CalculatorWidget = (function () {
 		if(!result){
 			if(!operator){
 				number1 += input;
-				$('#js-number1').html(number1);
+				$(Display.number1).text(number1);
 			}
 			else {
 				number2 += input;
-				$('#js-number2').html(number2);
+				$(Display.number2).text(number2);
 			}
 		}
 	};
@@ -52,7 +67,7 @@ export let CalculatorWidget = (function () {
 	let onPressOperationButton = function (type) {
 		if(!result && number1){
 			operator = type;
-			$('#js-operator').html(operator);
+			$(Display.operator).text(operator);
 		}
 	};
 
@@ -62,7 +77,8 @@ export let CalculatorWidget = (function () {
 	let onPressResultButton = function(){
 		if(number1 && number2 && operator){
 			result = eval(number1 + operator + number2);
-			$('#js-result').html(result);
+			$(Display.result).text(result);
+			userDataObject.result = result;
 		}
 	};
 
@@ -80,10 +96,10 @@ export let CalculatorWidget = (function () {
 		operator = '';
 		result = '';
 
-		$('#js-number1').html('');
-		$('#js-number2').html('');
-		$('#js-operator').html('');
-		$('#js-result').html('0');
+		$(Display.number1).text('');
+		$(Display.number2).text('');
+		$(Display.operator).text('');
+		$(Display.result).text('0');
 	};
 
 	// Return public API
@@ -93,6 +109,7 @@ export let CalculatorWidget = (function () {
 		onPressResultButton: onPressResultButton,
 		onPressAcButton: onPressAcButton,
 		Button: Button,
+		userDataObject: userDataObject
 	};
 
 })();

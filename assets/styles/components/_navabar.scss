@@ -1,0 +1,36 @@
+$color: #333;
+$color-font: #fff;
+
+.c_nav {
+  position: fixed;
+  bottom:0;
+  width:100%;
+  background: $color;
+  color: $color-font;
+  &_link {
+    margin:1px 0 2px 0;
+    display: block;
+    padding:10px 50px;
+    background: darken($color, 25%);
+    text-decoration: none;
+  }
+
+  ul {
+    padding:0;
+    margin:0;
+    li {
+      display: inline-block;
+    }
+  }
+
+  .author {
+    margin-left: 20px;
+    font-size: .8rem;
+
+  }
+
+  a, a:visited {
+    color: $color-font;
+  }
+
+}
