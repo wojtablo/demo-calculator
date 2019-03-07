@@ -15,3 +15,5 @@ cd assets && npm install
 # Build
 gulp build
 cd ../
+
+chmod -R 777 ./logs
