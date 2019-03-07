@@ -13,6 +13,7 @@ define("NODE_PACKAGES_FILEPATH", './assets/node_modules/');
 define("NODE_PACKAGES_LOCK_FILEPATH", './assets/package-lock.json');
 define("BUNDLED_CSS", './public/s/css/main.css');
 define("BUNDLED_JS", './public/s/js/bundle.min.js');
+define("LOG_DIR", './logs/');
 
 /**
  * Check if Composer dependencies are installed

@@ -32,10 +32,21 @@ class Calculator
 
         // Open for writing only; place the file pointer at the beginning of the file and
         // truncate the file to zero length. If the file does not exist, attempt to create it.
-        if(!is_file(static::CALCULATION_RESULTS_FILEPATH)){
-            $file = fopen(static::CALCULATION_RESULTS_FILEPATH, 'w');
-            fclose($file);
+        // Check if log file exists
+        if (!is_dir(LOG_DIR))
+        {
+            die('Log directory not found in ./log, create directory and make sure it is writeable');
         }
+        else
+        {
+            if(!is_file(static::CALCULATION_RESULTS_FILEPATH))
+            {
+                $file = fopen(static::CALCULATION_RESULTS_FILEPATH, 'w');
+                fclose($file);
+            }
+        }
+
+
     }
 
     /**
