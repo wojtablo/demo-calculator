@@ -9,7 +9,7 @@
 require_once 'app/bootstrap.php';
 
 // Render Calculations partial view
-echo $twig->render('partials/calculations.html', ['users' => $calculator->convertCsvResultsToArray()] );
+echo $twig->render('partials/calculations.html', ['userDataObject' => $calculator->convertCsvToArray()] );
 
 ?>
 

@@ -2,7 +2,8 @@
     "name": "wmikolajewski/calculator",
     "description": "Calculator's functionality executed on the server-side",
     "require": {
-        "twig/twig": "^2.6"
+        "twig/twig": "^2.6",
+        "jenssegers/agent": "^2.6"
     },
     "license": "MIT",
     "authors": [

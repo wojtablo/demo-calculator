@@ -11,18 +11,15 @@
         <!-- UI: Output display -->
         <section class="c_calc__display">
 
-            <!-- Output message -->
-            <div id="js-userInputNotification" class="c_calc__display__notification"></div>
-
             <!-- User input -->
-            <div id="js-userInput" class="c_calc__display__input js-userInput">
-                <span id="js-number1"></span>
-                <span id="js-operator"></span>
-                <span id="js-number2"></span>
+            <div class="c_calc__display__input js-userInput">
+                <span data-calc-number1></span>
+                <span data-calc-operator></span>
+                <span data-calc-number2></span>
             </div>
 
             <!-- Output of an artithmetic operation -->
-            <div id="js-result" class="c_calc__display__output">0</div>
+            <span data-calc-result class="c_calc__display__output" >0</span>
 
         </section>
 
@@ -45,7 +42,7 @@
             <!-- Row 2 -->
             <div class="c_calc__panel__row">
                 <div class="c_calc__panel__btn">
-                    <button class="c_calc__btn c_calc__btn__primary">.</button>
+                    <button class="c_calc__btn c_calc__btn__primary" data-number=".">.</button>
                 </div>
                 <div class="c_calc__panel__btn">
                     <button class="c_calc__btn c_calc__btn__primary" data-number="0">0</button>

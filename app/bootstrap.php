@@ -5,6 +5,9 @@
  * Date: 2019-03-06
  */
 
+use Jenssegers\Agent\Agent;
+
+
 define("VENDOR_AUTOLOAD_FILEPATH", __DIR__.'/vendor/autoload.php');
 define("NODE_PACKAGES_FILEPATH", './assets/node_modules/');
 define("NODE_PACKAGES_LOCK_FILEPATH", './assets/package-lock.json');
@@ -24,7 +27,8 @@ if (file_exists(VENDOR_AUTOLOAD_FILEPATH) && is_readable(VENDOR_AUTOLOAD_FILEPAT
     $twig = new Twig_Environment($templates);
 
     // Initialize Calculator
-    $calculator = new \Izing\Calculator();
+    $agent = new Jenssegers\Agent\Agent();
+    $calculator = new \Izing\Calculator($agent);
 }
 else
 {
