@@ -1,0 +1,30 @@
+// Assuming "Calculator" is a module/component of a larger application we might want to enable custom themes.
+// Therefore, variables' naming convention is agnostic.
+
+$calculator-frame-color: #d1595d;
+$calculator-width: 260px;
+
+// Buttons - styles
+$btn-font-color: #fff;
+$btn-primary-bg: #f6827a;
+$btn-secondary-bg: #f7bb86;
+$btn-tertiary-bg: #ed475c;
+
+// Buttons - size
+$btn-width: 65px;
+$btn-height: 62px;
+$btn-font-size: 1.3rem;
+
+// Display
+$display-height: 180px;
+$display-bg: #29363b;
+$display-input-font-size: 1.5rem;
+$display-input-font-color: #6d767a;
+$display-output-font-size: 3.5rem;
+$display-output-font-color: #fff;
+$display-notification-font-color: #fb5c5c;
+$display-notification-font-size: .7rem;
+
+
+// TODO ??
+$HIDE_OUTLINE: TRUE;

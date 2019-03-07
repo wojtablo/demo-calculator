@@ -1,0 +1,54 @@
+// Calculator's frame (i.e. mobile device)
+.c_calc_frame {
+  @extend %shadowEffect;
+}
+
+// Calculator's layout
+.c_calc {
+  background-color: $calculator-frame-color;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin:0 auto;
+  overflow: hidden;
+  position: relative;
+  width: $calculator-width;
+
+  // Display
+  &__display {
+    background-color: $display-bg;
+    height: $display-height;
+    padding: 40px 30px 45px 30px;
+    text-align: right;
+
+    &__notification {
+      font-size: $display-notification-font-size;
+      position: relative;
+      top: -10px;
+      &--warning {
+        color: $display-notification-font-color;
+      }
+      &--confirmation {
+        color: yellow;
+      }
+    }
+    &__input {
+      color: $display-input-font-color;
+      font-size: $display-input-font-size;
+      height:29px;
+    }
+    &__output {
+      color :$display-output-font-color;
+      font-size: $display-output-font-size;
+    }
+  }
+
+  // Panel {
+  &__panel {
+    &__row {
+      display: flex;
+      &:not(:last-child) {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
+}
+

@@ -1,6 +1,15 @@
-# IDE
+# Exclude stuff from IntelliJ IDEA & Visual Studio Code
 .idea
+.vscode
 
-# Other directories
+# Package managers
 assets/node_modules
+vendor
+
+# Distribution
 public/s/
+public/s/.gitkeep
+
+# Logs
+logs
+!logs/.gitkeep

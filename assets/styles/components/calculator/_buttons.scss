@@ -1,0 +1,43 @@
+// Calculator's Buttons
+
+// Just example of..
+$button: '.c_calc__btn';
+
+#{$button} { // .. an interpolation. Can do that too in SCSS
+  border: none;
+  color: $btn-font-color;
+  height: $btn-height;
+  font-family: inherit;
+  font-size: $btn-font-size;
+  font-weight: 300; // If using "Lato" font. Doesn't bother if not.
+  position:relative;
+  width: $btn-width;
+
+  // Shared behaviour
+  &:hover {
+    cursor: pointer;
+    transition: background-color 100ms linear;
+  }
+
+  // Force outline to wrap the whole button. Without this setting an outline is visible partially as it is partially overlayed by the nearby button. Thus, we need to "lift" it on focus
+  &:focus {
+    z-index:1;
+    outline: none;
+  }
+
+  &:active {}
+
+  // Theming buttons using SASS mixins
+  &__primary {
+    @include setButton($btn-primary-bg);
+  }
+  &__secondary {
+    @include setButton($btn-secondary-bg);
+  }
+  &__tertiary {
+    @include setButton($btn-tertiary-bg);
+  }
+  &--large {
+    width: 2 * $btn-width;
+  }
+}

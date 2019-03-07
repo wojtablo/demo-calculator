@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+@import
+
+  // Reset some default settings
+  'reset',
+
+  // Styles for general look and feel of the website
+  'general',
+
+  // Just some extras
+  'utils/extras',
+
+  // Navigation
+  'components/navabar',
+
+  // The Calculator (page: index.php)
+  'components/calculator',
+
+  // Table with logs (page: calculations.php)
+  'components/calculations',
+
+  // 3rd party
+  '../node_modules/awesome-notifications/src/styles/style';

@@ -1,0 +1,18 @@
+// Bootstrap "Calculator component
+@import
+  'calculator/variables',
+  'calculator/mixins',
+  'calculator/core',
+  'calculator/buttons';
+
+// Decorator to position Calculator in the browser's tab
+.⛱ {
+  height: 100vh;
+  .wrapper {
+    height:80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

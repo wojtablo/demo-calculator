@@ -1,0 +1,21 @@
+{
+    "name": "wmikolajewski/calculator",
+    "description": "Calculator's functionality executed on the server-side",
+    "require": {
+        "twig/twig": "^2.6",
+        "jenssegers/agent": "^2.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wojciech Mikołajewski",
+            "email": "w.mikolajewski@protonmail.ch"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+      "psr-4": {
+        "Izing\\": "Classes"
+      }
+    }
+}
